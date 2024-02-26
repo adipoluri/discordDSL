@@ -1,0 +1,25 @@
+SET TOKEN = ""
+SET CLIENT_ID = ""
+SET GUILD_ID = "1196895637405446176"
+
+SET admin = "welcome-and-rules"
+
+setup:
+	Send Message "Bot Starting up" in "general"
+;
+
+command register:
+    if Channel is admin {
+        Send Message "Code of Conduct" in admin
+    	Send Message "If you agree to these terms, reply to this message with 'YES'" in admin
+        SET user_message = Wait Message Caller
+
+    	if user_message is "YES" {
+            Give User Caller Role "Verified"
+            Send Message "Welcome {Caller} to the discord!" in "general"
+    	} else {
+    	    Send Message "Unable to Verify Agreement" in Channel
+    	}
+    }
+
+;

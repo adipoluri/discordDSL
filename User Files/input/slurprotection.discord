@@ -1,0 +1,17 @@
+SET TOKEN = ""
+SET CLIENT_ID = ""
+SET GUILD_ID = "1196895637405446176"
+
+SET admin = "welcome-and-rules"
+SET badwords = ["bad","slur","swear","jesus"]
+
+setup:
+	Send Message "Bot Starting up" in "general"
+;
+
+routine slurprotection:
+    if Input isin badwords {
+        Send Message "{Caller} said a bad word in {Channel}!" in Channel
+        Delete
+    }
+;
